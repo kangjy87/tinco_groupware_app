@@ -30,7 +30,8 @@ class PROVIDERS {
 
 class ASSETS {
   static String lottieSplash = "assets/splash.json";
-  static String tdiLogo = "assets/tdi_img.png";
+  // static String tdiLogo = "assets/tdi_img.png";
+  static String tdiLogo = "assets/tinco.png";
   static String googleLogo = "assets/google.png";
   static String font = "TmoneyRoundWind";
 }
@@ -38,8 +39,12 @@ class ASSETS {
 class URL {
   // static String tdiAuth = "https://dev.groupware.tdi9.com/api/app/auth";
   // static String tdiLogin = "https://dev.groupware.tdi9.com/app/login/token/";
-  static String tdiAuth = "https://groupware.tdi9.com/api/app/auth";
-  static String tdiLogin = "https://groupware.tdi9.com/app/login/token/";
+  // static String tdiAuth = "https://groupware.tdi9.com/api/app/auth";
+  // static String tdiLogin = "https://groupware.tdi9.com/app/login/token/";
+  // static String tdiAuth = "https://groupware.tinbot.kr/api/app/auth";
+  // static String tdiLogin = "https://groupware.tinbot.kr/app/login/token/";
+  static String tdiAuth = "https://groupware.adting.me/api/app/auth";
+  static String tdiLogin = "https://groupware.adting.me/app/login/token/";
 }
 
 class MESSAGES {
@@ -48,8 +53,8 @@ class MESSAGES {
 }
 
 class STRINGS {
-  static String tdiGroupware = "TDI Groupware";
-  static String googleLogin = "구글 로그인(회사메일)";
+  static String tdiGroupware = "TINCO Groupware";
+  static String googleLogin = "구글 로그인";
   static String authenticate = "본인 인증을 완료해 주세요.";
   static String signining = "로그인중 입니다 ...";
   static String logout = "로그아웃";

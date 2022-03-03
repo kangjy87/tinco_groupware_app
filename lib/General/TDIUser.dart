@@ -6,17 +6,19 @@ class TDIAccount {
   final String email;
   final String name;
   final String os;
+  final String appversion;
 
-  TDIAccount(this.provider, this.token, this.email, this.name, this.os);
+  TDIAccount(this.provider, this.token, this.email, this.name, this.os,this.appversion);
 
   TDIAccount.formJson(Map<String, dynamic> json)
       : provider = json["provider"],
         token = json["token"],
         email = json["email"],
         name = json["name"],
-        os = json["os"];
+        os = json["os"],
+        appversion = json["app_version"];
 
-  Map<String, dynamic> toJson() => {"provider": provider, "token": token, "email": email, "name": name, "os": os};
+  Map<String, dynamic> toJson() => {"provider": provider, "token": token, "email": email, "name": name, "os": os, "app_version": appversion};
 }
 
 class TDIToken {

@@ -12,7 +12,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late final AnimationController _animationController;
+  // late final AnimationController _animationController;
   void _goNextStep() {
     if (kIsPushLink == true) {
       Get.toNamed(Pages.nameGroupware);
@@ -40,20 +40,17 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this)
-      ..addStatusListener(
-        (status) {
-          if (status == AnimationStatus.completed) {
-            _goNextStep();
-            setState(() {});
-          }
-        },
-      );
-  }
+    //_animationController = AnimationController(vsync: this)
+    init();
 
+  }
+  init()async{
+    await Future.delayed(Duration (milliseconds: 2000));
+    _goNextStep();
+  }
   @override
   void dispose() {
-    _animationController.dispose();
+    // _animationController.dispose();
     super.dispose();
   }
 
@@ -64,18 +61,19 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          color: Colors.white,
-          child: Lottie.asset(
-            ASSETS.lottieSplash,
-            fit: BoxFit.contain,
-            controller: _animationController,
-            onLoaded: (composition) {
-              _animationController
-                ..duration = composition.duration
-                ..reset()
-                ..forward();
-            },
-          ),
+          color: Colors.black,
+          child: Image.asset(ASSETS.tdiLogo, width: 200),
+          // Lottie.asset(
+          //   ASSETS.lottieSplash,
+          //   fit: BoxFit.contain,
+          //   controller: _animationController,
+          //   onLoaded: (composition) {
+          //     _animationController
+          //       ..duration = composition.duration
+          //       ..reset()
+          //       ..forward();
+          //   },
+          // ),
         ),
       ),
     );

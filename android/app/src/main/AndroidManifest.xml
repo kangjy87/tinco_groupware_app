@@ -1,19 +1,20 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tdi.groupware">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kr.tinco.groupware">
 
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.WAKE_LOCK"/>
 	<uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
 	<!-- todo: beacon/geofence -->
-	<!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-	<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/> -->
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 	<!-- todo: geofence -->
 	<!-- <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>	
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/> -->
 
-	<application android:label="TDI Groupware" android:icon="@mipmap/ic_launcher">
+	<application android:label="TINCO Groupware" android:icon="@mipmap/ic_launcher">
 		<activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
 			<!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user

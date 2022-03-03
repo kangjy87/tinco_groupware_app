@@ -7,6 +7,7 @@ import 'package:hr_project_flutter/General/Common.dart';
 import 'package:hr_project_flutter/General/FileIO.dart';
 import 'package:hr_project_flutter/General/Logger.dart';
 import 'package:hr_project_flutter/General/TDIUser.dart';
+import 'package:package_info/package_info.dart';
 
 enum GOOGLE_AUTH_RESULT {
   SUCCESS,
@@ -29,7 +30,6 @@ class AuthManager {
   String? _urlPhoto;
   String? _googleIDToken;
   String? _lastError;
-
   String? get urlPhoto => _urlPhoto;
   String? get googleIDToken => _googleIDToken;
 
@@ -46,6 +46,7 @@ class AuthManager {
 
   Future<GOOGLE_AUTH_RESULT> googleSingIn(String fcmToken) async {
     try {
+      print('111111>>>>>>${fcmToken}');
       // google login
       final GoogleSignInAccount? gUser = await _googleSignIn.signIn();
       if (gUser == null) {
@@ -53,7 +54,7 @@ class AuthManager {
       }
       final GoogleSignInAuthentication gAuth = await gUser.authentication;
       final OAuthCredential gCredential =
-          GoogleAuthProvider.credential(accessToken: gAuth.accessToken, idToken: gAuth.idToken);
+      GoogleAuthProvider.credential(accessToken: gAuth.accessToken, idToken: gAuth.idToken);
 
       // google과 firebase 연동
       final User? fUser = (await _fbAuth.signInWithCredential(gCredential)).user;
@@ -68,7 +69,13 @@ class AuthManager {
       } else if (Platform.isIOS) {
         platformOS = OS_TYPE.IOS.convertString;
       }
-      TDIUser.account = TDIAccount(PROVIDERS.google, fcmToken, fUser.email!, fUser.displayName!, platformOS);
+      PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
+        kAppName = packageInfo.appName;
+        kPackageName = packageInfo.packageName;
+        kAppVersion = packageInfo.version;
+        kBuildNumber = packageInfo.buildNumber;
+      });
+      TDIUser.account = TDIAccount(PROVIDERS.google, fcmToken, fUser.email!, fUser.displayName!, platformOS,kAppVersion);
       var response = await Dio().post(URL.tdiAuth, data: TDIUser.account!.toJson());
 
       if (response.statusCode == 200) {

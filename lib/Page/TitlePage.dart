@@ -19,24 +19,28 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: WillPopScope(
-                onWillPop: () => _goBack(context),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: _buildMenu(),
+        child: Container(
+          color: Colors.black,
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: WillPopScope(
+                  onWillPop: () => _goBack(context),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: _buildMenu(),
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Text("ver. $kAppVersion"),
+              Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Text("ver. $kAppVersion",style: TextStyle(color: Colors.white),),
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 20,)
+            ],
+          ),
         ),
       ),
     );

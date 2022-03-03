@@ -1,4 +1,4 @@
-package com.tdi.groupware
+package kr.tinco.groupware
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
